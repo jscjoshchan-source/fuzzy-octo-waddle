@@ -4,7 +4,7 @@ root = tk.Tk()
 
 #create main window
 root.title("Auto Clicker")
-root.geometry("100x200")
+root.geometry("200x200")
 
 #create text label
 label = tk.Label(root, text="Auto Clicker", font=("Arial", 12))
