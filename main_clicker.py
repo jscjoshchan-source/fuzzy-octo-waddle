@@ -1,13 +1,13 @@
 import tkinter as tk
-import pyautogui as py
 root = tk.Tk()
 
 #create main window
 root.title("Auto Clicker")
-root.geometry("200x200")
+root.geometry("300x300")
+root.configure(bg="white")
 
 #create text label
-label = tk.Label(root, text="Auto Clicker", font=("Arial", 12))
+label = tk.Label(root, text="Auto Clicker", font=("Arial", 12), bg="white", fg="black")
 
 #make it visible
 label.pack(pady=5)
