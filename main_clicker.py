@@ -4,10 +4,9 @@ root = tk.Tk()
 #create main window
 root.title("Auto Clicker")
 root.geometry("300x300")
-root.configure(bg="white")
 
 #create text label
-label = tk.Label(root, text="Auto Clicker", font=("Arial", 12), bg="black", fg="white")
+label = tk.Label(root, text="Auto Clicker", font=("Arial", 12))
 
 #make it visible
 label.pack(pady=5)
