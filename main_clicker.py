@@ -1,18 +1,13 @@
 import tkinter as tk
-import pyautogui as py
 
 root = tk.Tk()
-#root2 = tk.Tk()
+root.title("Best Auto Clicker")
+root.geometry("500x500")
 
-#create main window
-root.title("Auto Clicker")
-root.geometry("300x300")
+title_welcome = tk.Label(root, text="Welcome to Best Auto Clicker", font=("Arial", 20))
+title_welcome.pack()
 
-#create text label
-label = tk.Label(root, text="Auto Clicker", font=("Arial", 12))
+created_by = tk.Label(root, text="Made in the USA", font=("Arial", 10))
+created_by.pack()
 
-#make it visible
-label.pack(pady=5)
-
-#start loop to keep window open
 root.mainloop()
