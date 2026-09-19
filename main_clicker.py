@@ -1,12 +1,15 @@
 ### IMPORT AREA -start
 import tkinter as tk
 import pyautogui as py
+import time
 ###IMPORT AREA -end
 ###FUNCTIONS AREA -start
 def click(event):
     print('clicked smth')
-def quit(event):
+def exit(event):
     root.quit()
+    py.click(1085, 950)
+    print("quit best auto clicker and entered VS CODE")
 ### FUNCTIONS AREA -end
 ### CREATING WINDOWS AREA -start
 root = tk.Tk()
@@ -27,10 +30,10 @@ click_button.pack()
 ### KEYBINDS AREA -start
 click_button.bind("<Button-1>", click)
 
-root.bind("q", quit)
-
+root.bind("q", exit)
+root.bind("g", lambda event: py.click(250, 950))
+root.bind("f", lambda event: py.click(95, 950))
 ### KEYBINDS AREA -end
-### MAINLOOP + AFTER AREA -start
+### MAINLOOP AREA -start
 root.mainloop()
-print("quit Best Auto Clicker")
-### MAINLOOP + AFTER AREA -end
+### MAINLOOP AREA -end
