@@ -50,7 +50,8 @@ def togglecountdown():
 
 def test():
     for i in range(5):
-        root.after(1000*i, lambda: print('stalling'+str(i)))
+        #iunderstand it now it's because of the lambda function and how it captures variables. You need to pass i as a default argument to the lambda function to capture its current value in each iteration.
+        root.after(1000*i, lambda: print('stalling'+str(i))))
 
 root = tk.Tk()
 
@@ -75,7 +76,6 @@ clickbutton = tk.Button(root, text="CLICK")
 clickbutton.bind("<Button-1>", handleclick)
 clickbutton.pack()
 
-root.mainloop()
-
 test()
-root.quit()
+
+root.mainloop()
