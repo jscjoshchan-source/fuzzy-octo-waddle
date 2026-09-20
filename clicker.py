@@ -21,7 +21,7 @@ def changeclicksettings(event):
 
 def updateclicksettings():
     global currentsetting
-    settings.config(text="Enable Click on " + currentsetting)
+    settings.config(text="Click on: " + currentsetting)
     print('changed click settings to ' + currentsetting)
 
 def clickcursor():
@@ -33,25 +33,19 @@ def handleclick(event):
     global currentsetting
     if currentsetting == "Cursor":
         togglecountdown()
-        #root.after(3000, clickcursor)
+        root.after(3000, clickcursor)
     else:
         #change this, temp.
         changeclicksettings(0)
 
 def togglecountdown():
     global countdownstatus
-    if "countdown: paused" in countdownstatus.cget('text'):
-        countdownstatus.config(text="countdown: running (3)")
-        for i in range(0, 3, 1):
-            STRi = str(i)
-            print('init'+STRi)
-            root.after(1000 * i, lambda: print('stalling'+STRi))
-            print('ainit'+STRi)
-
-def test():
-    for i in range(5):
-        #iunderstand it now it's because of the lambda function and how it captures variables. You need to pass i as a default argument to the lambda function to capture its current value in each iteration.
-        root.after(1000*i, lambda: print('stalling'+str(i))))
+    if "countdown: disabled" in countdownstatus.cget('text'):
+        for i in range(3, -1, -1):
+            root.after((3-i)*1000, lambda i=i: (print('clickcountdown: '+str(i)), countdownstatus.config(text='countdown: active ('+str(i)+')')))
+        root.after(4000, lambda: countdownstatus.config(text='countdown: disabled (0)'))
+    else:
+        print('countdown is already counting')
 
 root = tk.Tk()
 
@@ -64,9 +58,6 @@ title.pack()
 madeinus = tk.Label(root, text="Made in the USA", font=("Arial", 10))
 madeinus.pack()
 
-countdownstatus = tk.Label(root, text="countdown: paused (0)", font=("Arial", 5))
-countdownstatus.pack()
-
 settings = tk.Button(root, text="")
 settings.bind("<Button-1>", changeclicksettings)
 settings.pack()
@@ -76,6 +67,7 @@ clickbutton = tk.Button(root, text="CLICK")
 clickbutton.bind("<Button-1>", handleclick)
 clickbutton.pack()
 
-test()
+countdownstatus = tk.Label(root, text="countdown: disabled (0)", font=("Arial", 10))
+countdownstatus.pack()
 
 root.mainloop()
